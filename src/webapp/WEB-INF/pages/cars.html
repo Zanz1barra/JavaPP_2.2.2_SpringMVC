@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>List of cars</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                border: 2px solid rgb(140 140 140);
+                font-family: sans-serif;
+                font-size: 0.8rem;
+                letter-spacing: 1px;
+            }
+
+            thead {
+                background-color: rgba(0, 160, 255, 0.4);
+            }
+
+            th,
+            td {
+                border: 1px solid rgb(160 160 160);
+                padding: 8px 10px;
+                text-align: center;
+            }
+
+            tbody > tr:nth-of-type(even) {
+                background-color: rgb(237 238 242);
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>List of cars</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Series</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Owner</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="car : ${list}">
+                    <td th:utext="${car.getSeries()}">Series</td>
+                    <td th:utext="${car.getModelName()}">Model</td>
+                    <td th:utext="${car.getOwnerName()}">Owner</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
